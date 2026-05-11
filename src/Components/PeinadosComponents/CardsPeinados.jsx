@@ -1,7 +1,7 @@
 import Deck from "./PolaroidDeck/Deck";
 import card1 from "../../assets/images/cards/card1.png";
 import card2 from "../../assets/images/cards/card2.png";
-import card3 from "../../assets/images/cards/card3.png";
+import card3 from "../../assets/images/cards/card4.png";
 
 const fotos = [
   {

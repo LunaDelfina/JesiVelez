@@ -1,0 +1,97 @@
+@import "https://fonts.googleapis.com/css2?family=Mynerve&display=swap";
+
+.photo-deck {
+  --photo-deck-font: "Mynerve";
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.photo-deck *,
+.photo-deck ::before,
+.photo-deck ::after {
+  box-sizing: border-box;
+}
+
+.photo-deck__card-shell {
+  will-change: transform;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.photo-deck__card {
+  display: grid;
+  grid-template-rows:
+    var(--photo-deck-card-top-height)
+    var(--photo-deck-photo-height)
+    var(--photo-deck-card-bottom-height);
+  place-items: stretch center;
+  touch-action: none;
+  will-change: transform;
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow:
+    0 12.5px 100px -10px rgba(50, 50, 73, 0.4),
+    0 10px 10px -10px rgba(50, 50, 73, 0.3);
+}
+
+.photo-deck__photo {
+  width: var(--photo-deck-photo-width);
+  height: var(--photo-deck-photo-height);
+  background-color: #f4f2ee;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: inset 0 0 0 1px rgba(50, 50, 73, 0.12);
+}
+
+.photo-deck__date-row,
+.photo-deck__caption-row {
+  pointer-events: none;
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  overflow: hidden;
+}
+
+.photo-deck__date-row {
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 8px 16px 0;
+}
+
+.photo-deck__caption-row {
+  justify-content: center;
+  align-items: center;
+  padding: 4px 22px 14px;
+}
+
+.photo-deck__date,
+.photo-deck__caption {
+  color: #121212;
+  width: 100%;
+  min-width: 0;
+  font-family: var(--photo-deck-font), "Segoe Print", "Bradley Hand", "Chalkboard SE", "Comic Sans MS", cursive;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.5;
+  display: block;
+  overflow: hidden;
+  transform: rotate(-2deg);
+}
+
+.photo-deck__date {
+  text-align: right;
+  font-size: 1rem;
+}
+
+.photo-deck__caption {
+  font-size: var(--photo-deck-caption-font-size, 1.5rem);
+  text-align: center;
+}
