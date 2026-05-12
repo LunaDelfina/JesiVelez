@@ -1,10 +1,11 @@
+import { Link } from 'react-router-dom'
 const NavBar = () => {
     return (
         <div className="flex pt-9 justify-between ">
-            <div className="gap-[1vh] flex flex-col">
+            <Link to="/"  className="gap-[1vh] flex flex-col">
                 <h1 className="text-blanco text-4xl font-principal font-bold">Jesi Velez</h1>
                 <h3 className="tracking-[0.15em] text-marron_claro">Tocados · Alta Gracia, Córdoba</h3>
-            </div>
+            </Link>
             <div>
                 <button className="px-4 py-2 font-light tracking-[0.1em] hover:bg-marron_claro hover:text-blanco transition-colors duration-300">COLECCIÓN</button>
                 <button className="px-4 py-2 font-light tracking-[0.1em] hover:bg-marron_claro hover:text-blanco transition-colors duration-300">PEINADOS</button>
