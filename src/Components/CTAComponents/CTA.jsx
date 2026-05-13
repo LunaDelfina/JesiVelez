@@ -1,6 +1,6 @@
 import MainTitle from "../Titles.jsx"
 import Cards from "./CTACards.jsx"
-import Footer from "./Footer.jsx"
+import Footer from "../Footer.jsx"
 
 
 const CTA = () => {
