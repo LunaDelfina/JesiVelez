@@ -24,7 +24,7 @@ const PinsCard = ({ title }) => {
 const Peinados = () => {
     return (
 
-         <section className="bg-gradient-to-t from-carbon_oscuro to-carbon_claro h-screen snap-start px-[15%] flex flex-col  ">
+         <section id="Peinados" className="bg-gradient-to-t from-carbon_oscuro to-carbon_claro h-screen snap-start px-[15%] flex flex-col  ">
             <div className="flex h-full justify-center items-center ">
                 <div className="flex flex-col gap-4 max-w-sm">
                    <MainTitle eyebrow="Servicio de peinados" title="Tu peinado, " accent="Tu historia"/>

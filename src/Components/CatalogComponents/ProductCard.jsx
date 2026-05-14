@@ -2,8 +2,9 @@ import {Link} from "react-router-dom"
 
 const ProductTemplate = ({ name, image, price, categorie }) => {
     return (
+        <div className="relative">
         <Link to={`/productos/${name}`}>
-            <div className="bg-marron_oscuro/75 text-white text-xs font-light tracking-[0.1em] p-2 w-fit rounded absolute m-2 z-10">
+            <div className="bg-marron_oscuro/75 text-white text-xs font-light tracking-[0.1em] p-2 w-fit rounded absolute m-2 z-0">
             <p className=" relative ">{categorie}</p>
             </div>
             <div className="overflow-hidden h-80">
@@ -14,6 +15,7 @@ const ProductTemplate = ({ name, image, price, categorie }) => {
             <div className="h-[1px] bg-marron_oscuro/30 my-2 rounded"></div>
             <p className="text-2xl text-marron_oscuro  italic font-light text-right">${price}</p>
         </Link>
+        </div>
     )
 }
 

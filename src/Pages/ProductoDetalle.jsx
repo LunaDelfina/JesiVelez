@@ -1,12 +1,16 @@
 import NavBar from "../Components/NavBar.jsx"
 import Curve from "../Components/Curve.jsx"
 import ProductoContent from "../Components/ProductComponents/ProductoContent.jsx"
+import Aurora from "../assets/images/products/Aurora.png"
+import Cristal from "../assets/images/products/Cristal.png"
+import Eclipsa from "../assets/images/products/Eclipsa.png"
+import Flora from "../assets/images/products/Flora.png"
 
 
 const product = {
   title: "Aurora",
   year: 2023,
-  image: "https://i.pinimg.com/564x/1c/8b/0e/1c8b0e5d9f2a7c3c9e5e5e5e5e5e5e.jpg",
+  images: [Aurora, Cristal, Eclipsa, Flora],
   price: 100,
   categorie: "Tocados",
   materials: ["Porcelana Fría", "Perlas Naturales", "Alambre Dorado", "Cristales Swarovski"],
