@@ -4,7 +4,7 @@ import Productos from './Pages/Productos.jsx'
 import ProductoDetalle from './Pages/ProductoDetalle.jsx'
 import IniciarSesion from './Pages/IniciarSesion.jsx'
 import ProtectedRoute from './Components/ProtectedRoute.jsx'
-import Admin from './Components/Login/Admin.jsx'
+import SubirProducto from './Pages/SubirProducto.jsx'
 
 
 
@@ -15,14 +15,9 @@ export default function App() {
       <Route path="/productos" element={<Productos />} />
       <Route path="/productos/:id" element={<ProductoDetalle />} />
       <Route path="/IniciarSesion" element={<IniciarSesion />} />
-      <Route path="/Admin" element={
-        <ProtectedRoute>
-          <Admin />
-        </ProtectedRoute>
-      } />
       <Route path="/AgregarProducto" element={
         <ProtectedRoute>
-          <Admin />
+          <SubirProducto />
         </ProtectedRoute>
       } />
     </Routes>

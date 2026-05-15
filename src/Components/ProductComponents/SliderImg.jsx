@@ -23,7 +23,7 @@ const SliderImages = ({ images = [] }) => {
     const next = () => setActive(i => (i + 1) % images.length)
 
     return (
-        <div className="w-full max-w-[50%] flex flex-col gap-3 py-10 sticky top-[128px] h-[calc(100vh-128px)]">
+        <div className="w-full  flex flex-col gap-3 py-10 sticky top-[128px] h-[calc(100vh-128px)]">
 
             {/* Imagen principal */}
             <div className="relative flex-1 overflow-hidden bg-crema">
