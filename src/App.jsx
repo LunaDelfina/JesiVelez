@@ -5,6 +5,7 @@ import ProductoDetalle from './Pages/ProductoDetalle.jsx'
 import IniciarSesion from './Pages/IniciarSesion.jsx'
 import ProtectedRoute from './Components/ProtectedRoute.jsx'
 import SubirProducto from './Pages/SubirProducto.jsx'
+import TestSupabase from './Pages/TextSupabase.jsx'
 
 
 
@@ -20,6 +21,8 @@ export default function App() {
           <SubirProducto />
         </ProtectedRoute>
       } />
+      <Route path="/test" element={<TestSupabase />} />
     </Routes>
+    
   )
 }

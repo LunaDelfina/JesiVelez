@@ -3,7 +3,7 @@ import SliderImages from "../ProductComponents/SliderImg"
 
 
 const EmptyState = ({onUploadClick }) => (
-    <div className="flex flex-col items-center justify-center gap-4 h-full text-center px-10" onSelect="">
+    <div className="flex flex-col items-center justify-center gap-4 h-full text-center px-10">
         <svg
             xmlns="http://www.w3.org/2000/svg"
             className="w-12 h-12 text-marron_claro/40"
@@ -26,15 +26,14 @@ const EmptyState = ({onUploadClick }) => (
                 className="text-xs text-marron_claro/40 uppercase tracking-widest"
                 style={{ fontFamily: "var(--secundario)" }}
             >
-                JPG, PNG o WEBP · Máximo 10 archivos
+                JPG, PNG o Video · Máximo 10 archivos
             </p>
         </div>
         <button
             type="button"
             className="cursor-pointer mt-2 border-1 border-marron_claro/50 text-marron_claro/60 text-xs uppercase tracking-widest px-6 py-2 rounded-sm hover:border-marron_oscuro hover:text-marron_oscuro transition-colors duration-300"
             style={{ fontFamily: "var(--secundario)" }}
-            onClick={onUploadClick }
-            
+            onClick={(e) => { e.stopPropagation(); onUploadClick(); }}
         >
             Seleccionar archivos
         </button>

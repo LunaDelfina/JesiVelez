@@ -17,7 +17,7 @@ const ProductDescription = ({ product }) => {
     return (
         <div className="flex flex-col w-full max-w-[50%] pb-15 h-fit py-10">
             <div>
-                <MainTitle title={product.title} eyebrow={`colección ${product.year}`} />
+                <MainTitle title={product.title} eyebrow={`colección 2026`} />
                 <p className="font-light tracking-[0.1em] text-marron_oscuro/75 mt-2">{product.categorie} · Hecho a mano</p>
                 <h2 className="text-2xl italic font-bold  tracking-[0.1em] text-marron_oscuro/75  mt-2">${product.price.toFixed(2)}</h2>
             </div>

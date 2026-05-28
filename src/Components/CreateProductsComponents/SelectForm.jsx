@@ -2,13 +2,19 @@
 //import Select from "react-select"
 import CreatableSelect from 'react-select/creatable';
 
-const SelectBase = ({ id, placeholder, options, onChange, nombreEntidad = "opción", isMulti }) => (
+//import { supabase } from '../../supabase/client';
+
+
+
+const SelectBase = ({ id, placeholder, options, value, onChange, onCreateOption, nombreEntidad = "opción", isMulti }) => (
     <CreatableSelect
         id={id}
         placeholder={placeholder}
         options={options}
+        value={value}
         onChange={onChange}
         isMulti={isMulti}
+        onCreateOption={onCreateOption}
         formatCreateLabel={(input) => `Crear nueva ${nombreEntidad} "${input}"`}
         unstyled
         classNames={{
@@ -31,12 +37,9 @@ const SelectBase = ({ id, placeholder, options, onChange, nombreEntidad = "opci�
     />
 )
 
-const categoriasOpciones = [
-    { value: '01', label: 'Tocados' },
-    { value: '02', label: 'Pins' },
-    { value: '03', label: 'Guias' },
-    { value: '04', label: 'Joyeria' },
-]
+
+
+
 
 const disponibilidadOpciones = [
     { value: 'disponible', label: 'Disponible' },
@@ -54,15 +57,18 @@ const esPersonalizable = [
     { value: 'no', label: 'No, es un producto único' },
 ]
 
-export const SelectCategoria = ({ onChange, isMulti }) => (
-    <SelectBase id="categoria" placeholder="ej. Tocados" options={categoriasOpciones} onChange={onChange} nombreEntidad="categoria" isMulti={isMulti} />
+export const SelectCategoria = ({ onChange, value, isMulti, options, onCreateOption}) => (
+    <SelectBase id="categoria" placeholder="ej. Tocados" options={options} value={value} onChange={onChange} onCreateOption={onCreateOption} nombreEntidad="categoria" isMulti={isMulti} />
+)
+export const SelectMateriales = ({ onChange, value, isMulti, options, onCreateOption}) => (
+    <SelectBase id="materiales" placeholder="ej. Tela" options={options} value={value} onChange={onChange} onCreateOption={onCreateOption} nombreEntidad="material" isMulti={isMulti} />
 )
 
 export const SelectDisponibilidad = ({ onChange }) => (
     <SelectBase id="disponibilidad" placeholder="ej. Disponible" options={disponibilidadOpciones} onChange={onChange} />
 )
 export const SelectEnvio = ({ onChange }) => (
-    <SelectBase id="disponibilidad" placeholder="ej. A todo el pais" options={envioOpciones} onChange={onChange} />
+    <SelectBase id="envio" placeholder="ej. A todo el pais" options={envioOpciones} onChange={onChange} />
 )
 
 export const SelectPersonalizable = ({ onChange }) => (
