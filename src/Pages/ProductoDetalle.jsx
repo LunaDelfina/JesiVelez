@@ -1,30 +1,51 @@
+import { useState, useEffect } from "react"
+import { supabase } from "../supabase/client"
 import NavBar from "../Components/NavBar.jsx"
 import Curve from "../Components/Curve.jsx"
 import ProductoContent from "../Components/ProductComponents/ProductoContent.jsx"
-import Aurora from "../assets/images/products/Aurora.png"
-import Cristal from "../assets/images/products/Cristal.png"
-import Eclipsa from "../assets/images/products/Eclipsa.png"
-import Flora from "../assets/images/products/Flora.png"
+import { useParams } from "react-router-dom"
 
 
-const product = {
-  title: "Aurora",
-  year: 2023,
-  images: [Aurora, Cristal, Eclipsa, Flora],
-  price: 100,
-  categorie: "Tocados",
-  materials: ["Porcelana Fría", "Perlas Naturales", "Alambre Dorado", "Cristales Swarovski"],
-  description: "El tocado Aurora es una pieza única y elegante, inspirada en la belleza de las auroras boreales. Cada detalle ha sido cuidadosamente elaborado a mano, utilizando porcelana fría de alta calidad para crear flores delicadas y hojas intrincadas. Las perlas naturales añaden un toque de sofisticación, mientras que el alambre dorado aporta un brillo sutil. Los cristales Swarovski capturan la luz de manera deslumbrante, haciendo que este tocado sea perfecto para ocasiones especiales como bodas o eventos formales.",
-  info:[
-    {Label: "Tiempo de entrega", Value: "2-3 semanas"},
-    {Label: "Disponibilidad", Value: "En stock"},
-    {Label: "Envío", Value: "Todo el país"},
-    {Label: "Personalizable", Value: "Sí, consulta"}
-  ]
-
-}
 
 export default function ProductoDetalle() {
+
+  const { id } = useParams()
+
+  const [product, setProduct] = useState(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      const { data, error } = await supabase
+        .from('productos')
+        .select(`
+          id,
+          title:titulo,
+          price:precio,
+          images:producto_fotos (path, es_principal),
+          producto_categorias (
+              categorias (nombre)
+          ),
+          description:descripcion,
+          materials:materiales (nombre),
+          info (Label, Value)
+        `)
+        .eq('activo', true)
+        .eq('id', id)
+        .single()
+
+      if (error) {
+        console.error('Error fetching product:', error)
+        return
+      }
+      setProduct({
+        ...data,
+        categorie: data.producto_categorias[0]?.categorias?.nombre,
+      })
+      setLoading(false)
+    }
+    fetchProduct()
+  }, [id])
 
 
   return (
@@ -33,8 +54,13 @@ export default function ProductoDetalle() {
         <NavBar  />
       </div>
       <Curve />
-      <ProductoContent product={product} />
-      
+      {loading ? (
+        <div className="flex justify-center items-center h-full">
+          <p>Cargando...</p>
+        </div>
+      ) : (
+        <ProductoContent product={product} />
+      )}
 
     </section>
   )

@@ -1,9 +1,9 @@
 import {Link} from "react-router-dom"
 
-const ProductTemplate = ({ name, image, price, categorie }) => {
+const ProductTemplate = ({ id, name, image, price, categorie }) => {
     return (
         <div className="relative">
-        <Link to={`/productos/${name}`}>
+        <Link to={`/productos/${id}`}>
             <div className="bg-marron_oscuro/75 text-white text-xs font-light tracking-[0.1em] p-2 w-fit rounded absolute m-2 z-0">
             <p className=" relative ">{categorie}</p>
             </div>
