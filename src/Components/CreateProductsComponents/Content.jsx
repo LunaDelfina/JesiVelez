@@ -36,6 +36,11 @@ const Content = () => {
                     precio_desde: precio,
                     destacado: false,
                     activo: true,
+                    envio:envio?.value??null,
+                    personalizable: personalizable?.value??null,
+                    tiempo_entrega: tiempoEntrega,
+                    disponibilidad: disponibilidad?.value??null,
+
                 })
                 .select()
                 .single()

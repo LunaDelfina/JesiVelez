@@ -15,6 +15,7 @@ const ProductDescription = ({ product }) => {
 
     
     return (
+        
         <div className="flex flex-col w-full max-w-[50%] pb-15 h-fit py-10">
             <div>
                 <MainTitle title={product.title} eyebrow={`colección 2026`} />
