@@ -1,7 +1,7 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import { animated, to as interpolate, useSprings } from "@react-spring/web";
 import { useDrag } from "@use-gesture/react";
-import { to, from, trans } from "./utils";
+import { to, from, trans, getCardScale } from "./utils";
 import "./deck.css";
 
 const TIMEOUT_MS = 5000;
@@ -111,8 +111,10 @@ export default function Deck({ cards, className, style }) {
       setOrientations(results);
       api.start((i) => ({ ...from(i), immediate: true }));
       setIsReady(true);
+      const w = containerRef.current?.getBoundingClientRect().width ?? 0;
+      const xScale = w > 0 ? Math.min(1, w / 700) : 1;
       rafId = window.requestAnimationFrame(() => {
-        if (active) api.start((i) => to(i));
+        if (active) api.start((i) => to(i, xScale, xScale));
       });
     });
 
@@ -133,7 +135,7 @@ export default function Deck({ cards, className, style }) {
       return {
         x:     isGone ? (200 + containerWidth) * dx : active ? mx : 0,
         rot:   mx / 100 + (isGone ? dx * 10 * vx : 0),
-        scale: active ? 1.1 : 1,
+        scale: active ? getCardScale(index) * 1.1 : getCardScale(index),
         delay: undefined,
         config: { friction: 50, tension: active ? 300 : isGone ? 120 : 400 },
         onRest: isGone
@@ -147,8 +149,10 @@ export default function Deck({ cards, className, style }) {
         gone.clear();
         resetCount.current += 1;
         setHiddenCards(new Set());
+        const w = containerRef.current?.getBoundingClientRect().width ?? 0;
+        const xScale = w > 0 ? Math.min(1, w / 700) : 1;
         api.start((i) => ({
-          ...to(i),
+          ...to(i, xScale, xScale),
           from: { x: 0, rot: 0, scale: 1.5, y: -1000 },
           delay: i * 150,
         }));
@@ -172,6 +176,8 @@ export default function Deck({ cards, className, style }) {
           "--photo-deck-photo-height":         `${dims.photoHeight}px`,
           "--photo-deck-card-top-height":      `${dims.topHeight}px`,
           "--photo-deck-card-bottom-height":   `${dims.bottomHeight}px`,
+          "--photo-deck-caption-font-size":    `${dims.frameWidth * 0.088}px`,
+          "--photo-deck-date-font-size":       `${dims.frameWidth * 0.059}px`,
         };
 
         return (

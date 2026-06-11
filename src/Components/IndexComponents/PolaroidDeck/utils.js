@@ -1,21 +1,22 @@
 // Posiciones fijas por índice para efecto "fotos tiradas sobre una mesa"
 // Orden del stack: índice 0 = fondo, índice 2 = frente
 const CARD_POSITIONS = [
-  { xBase: -190, yBase: 30,  rotMin: -24, rotRange: 10 }, // izquierda atrás
-  { xBase:  150, yBase: 25,  rotMin:  14, rotRange: 12 }, // derecha atrás
-  { xBase:  -15, yBase: -10, rotMin:  -6, rotRange: 12 }, // centro al frente
+  { xBase: -100, yBase: 20, rotMin: -18, rotRange: 5, cardScale: 0.88 }, // izquierda atrás
+  { xBase:  100, yBase: 18, rotMin:  13, rotRange: 5, cardScale: 0.88 }, // derecha atrás
+  { xBase:    0, yBase: -5, rotMin:  -4, rotRange: 4, cardScale: 1.12 }, // centro al frente (más grande)
 ];
 
-// jitter leve para que no sea 100% mecánico
 const jitter = (range) => Math.random() * range - range / 2;
 
-export const to = (i) => {
+export const getCardScale = (i) => CARD_POSITIONS[i % CARD_POSITIONS.length].cardScale ?? 1;
+
+export const to = (i, xScale = 1, rotScale = 1) => {
   const pos = CARD_POSITIONS[i % CARD_POSITIONS.length];
   return {
-    x:     pos.xBase + jitter(24),
-    y:     pos.yBase + jitter(16),
-    scale: 1,
-    rot:   pos.rotMin + Math.random() * pos.rotRange,
+    x:     (pos.xBase + jitter(8)) * xScale,
+    y:     pos.yBase + jitter(5),
+    scale: pos.cardScale,
+    rot:   (pos.rotMin + Math.random() * pos.rotRange) * rotScale,
     delay: i * 100,
   };
 };
