@@ -39,10 +39,11 @@ const EmptyState = ({onUploadClick }) => (
         </button>
     </div>
 )
-const LoadImage = ({ onUploadClick, files }) => {
-    const urls = files.map(f => URL.createObjectURL(f))
+const LoadImage = ({ onUploadClick, files, existingUrls = [] }) => {
+    const localUrls = files.map(f => URL.createObjectURL(f))
+    const urls = localUrls.length > 0 ? localUrls : existingUrls
 
-    if (files.length === 0) return (
+    if (urls.length === 0) return (
         <div
             className="w-full max-w-[50%] sticky top-[128px] h-[calc(100vh-128px)] flex flex-col py-10 cursor-pointer"
             onClick={onUploadClick}
@@ -54,7 +55,7 @@ const LoadImage = ({ onUploadClick, files }) => {
     )
 
     return (
-        <div className="relative w-full ">
+        <div className="relative w-full sticky top-[128px]">
             <SliderImages images={urls} />
             <button
                 type="button"

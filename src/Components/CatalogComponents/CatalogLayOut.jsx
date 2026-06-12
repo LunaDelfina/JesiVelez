@@ -10,9 +10,9 @@ const CatalogLayOut = ({ data}) => {
     }
 
     return(
-        <div className="flex flex-wrap gap-10 mt-2">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 mt-2">
             {data.map((item) => (
-                <div className="flex-1 min-w-[220px]" key={item.id}>
+                <div key={item.id}>
                     <ProductCard name={item.titulo} image={getImageUrl(item.producto_fotos[0]?.path)} price={item.precio_desde} categorie={item.producto_categorias[0]?.categorias?.nombre}/>
                 </div>
             ))}

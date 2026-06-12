@@ -41,19 +41,19 @@ const SelectBase = ({ id, placeholder, options, value, onChange, onCreateOption,
 
 
 
-const disponibilidadOpciones = [
+export const disponibilidadOpciones = [
     { value: 'disponible', label: 'Disponible' },
     { value: 'por_encargo', label: 'Por encargo' },
     { value: 'sin_stock', label: 'Sin stock' },
 ]
 
-const envioOpciones = [
+export const envioOpciones = [
     { value: '01', label: 'Si, a todo el pais' },
     { value: '02', label: 'Alta Gracia y alrededores' },
 ]
 
-const esPersonalizable = [
-    { value: 'si', label: 'Si,consultame' },
+export const esPersonalizableOpciones = [
+    { value: 'si', label: 'Si, consultame' },
     { value: 'no', label: 'No, es un producto único' },
 ]
 
@@ -64,13 +64,13 @@ export const SelectMateriales = ({ onChange, value, isMulti, options, onCreateOp
     <SelectBase id="materiales" placeholder="ej. Tela" options={options} value={value} onChange={onChange} onCreateOption={onCreateOption} nombreEntidad="material" isMulti={isMulti} />
 )
 
-export const SelectDisponibilidad = ({ onChange }) => (
-    <SelectBase id="disponibilidad" placeholder="ej. Disponible" options={disponibilidadOpciones} onChange={onChange} />
+export const SelectDisponibilidad = ({ onChange, value }) => (
+    <SelectBase id="disponibilidad" placeholder="ej. Disponible" options={disponibilidadOpciones} value={value} onChange={onChange} />
 )
-export const SelectEnvio = ({ onChange }) => (
-    <SelectBase id="envio" placeholder="ej. A todo el pais" options={envioOpciones} onChange={onChange} />
+export const SelectEnvio = ({ onChange, value }) => (
+    <SelectBase id="envio" placeholder="ej. A todo el pais" options={envioOpciones} value={value} onChange={onChange} />
 )
 
-export const SelectPersonalizable = ({ onChange }) => (
-    <SelectBase id="personalizable" placeholder="ej. Si, consultame" options={esPersonalizable} onChange={onChange} />
+export const SelectPersonalizable = ({ onChange, value }) => (
+    <SelectBase id="personalizable" placeholder="ej. Si, consultame" options={esPersonalizableOpciones} value={value} onChange={onChange} />
 )

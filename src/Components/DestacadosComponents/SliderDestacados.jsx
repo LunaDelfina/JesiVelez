@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import DestacadoCards from "./DestacadosCard.jsx"
 import DestacadosData from "./DestacadosData.jsx"
 
@@ -6,9 +6,15 @@ const ITEMS_POR_PAGINA = 4
 
 const SliderDestacados = () => {
     const [pagina, setPagina] = useState(0)
-    const totalPaginas = Math.ceil(DestacadosData.length / ITEMS_POR_PAGINA)
-    
-    const productosPagina = DestacadosData.slice(
+    const [productos, setProductos] = useState([])
+
+    useEffect(() => {
+        DestacadosData().then(setProductos)
+    }, [])
+
+    const totalPaginas = Math.ceil(productos.length / ITEMS_POR_PAGINA)
+
+    const productosPagina = productos.slice(
         pagina * ITEMS_POR_PAGINA,
         pagina * ITEMS_POR_PAGINA + ITEMS_POR_PAGINA
     )

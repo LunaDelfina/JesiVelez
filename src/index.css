@@ -38,10 +38,6 @@ body {
   font-family: var(--secundario);
 }
 
-.photo-deck {
-  overflow: hidden;
-}
-
 .photo-deck * {
   font-family: var(--principal) !important;
   color: var(--marron_oscuro) !important;

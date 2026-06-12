@@ -17,6 +17,7 @@ const FormularioIngreso = ({
     tiempoEntrega, setTiempoEntrega,
     opcionesCategoria, onCrearCategoria,
     opcionesMateriales, onCrearMateriales,
+    esEdicion,
 }) => {
     return (
         <div className="w-full max-w-[50%] flex flex-col gap-6 py-10">
@@ -88,18 +89,21 @@ const FormularioIngreso = ({
                         <div className={col}>
                             <LabelTitulo titulo="Disponibilidad" />
                             <SelectDisponibilidad
+                                value={disponibilidad}
                                 onChange={(opcion) => setDisponibilidad(opcion)}
                             />
                         </div>
                         <div className={col}>
                             <LabelTitulo titulo="Envío" />
                             <SelectEnvio
+                                value={envio}
                                 onChange={(opcion) => setEnvio(opcion)}
                             />
                         </div>
                         <div className={col}>
                             <LabelTitulo titulo="¿Personalizable?" />
                             <SelectPersonalizable
+                                value={personalizable}
                                 onChange={(opcion) => setPersonalizable(opcion)}
                             />
                         </div>
@@ -115,7 +119,7 @@ const FormularioIngreso = ({
                     className="mt-2 py-3 px-8 bg-marron_oscuro text-blanco text-sm uppercase tracking-widest rounded-sm hover:bg-carbon_claro transition-colors duration-300 self-end"
                     style={{ fontFamily: "var(--secundario)" }}
                 >
-                    {loading ? 'Publicando...' : 'Publicar pieza'}
+                    {loading ? (esEdicion ? 'Guardando...' : 'Publicando...') : (esEdicion ? 'Guardar cambios' : 'Publicar pieza')}
                 </button>
 
             </form>

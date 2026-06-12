@@ -1,9 +1,11 @@
+import { formatPrecio } from "../../utils/format"
+
 const BuyNow=({ price })=>{
     return(
         <div className="w-full bg-white p-4 flex gap-8 align-center justify-center">
             <div>
                 <p>Precio</p>
-                <h3 className="text-marron_oscuro/75 text-2xl italic font-bold" >${price}</h3>
+                <h3 className="text-marron_oscuro/75 text-2xl italic font-bold" >${formatPrecio(price)}</h3>
             </div>
             <div className="bg-marron_claro flex items-center gap-2 px-6 rounded-sm ">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" fill="currentColor" className="w-6 h-6 text-blanco content-center">

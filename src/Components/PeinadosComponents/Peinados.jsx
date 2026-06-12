@@ -24,14 +24,14 @@ const PinsCard = ({ title }) => {
 const Peinados = () => {
     return (
 
-         <section id="Peinados" className="bg-gradient-to-t from-carbon_oscuro to-carbon_claro h-[100dvh] snap-start  md:px-[15%] px-10 flex flex-col  ">
+         <section id="Peinados" className="bg-gradient-to-t from-carbon_oscuro to-carbon_claro h-[100dvh] snap-start md:px-[15%] px-10 flex flex-col overflow-x-clip">
             <div className="flex h-full justify-center items-center ">
                 <div className="flex flex-col lg:gap-4 gap-2 max-w-sm">
                    <MainTitle eyebrow="Servicio de peinados" title="Tu peinado, " accent="Tu historia"/>
                    <div className="w-full h-[35vh] min-w-0 relative md:overflow-hidden overflow-visible md:hidden my-2">
                     <Cards />
                 </div>
-                    <p className="text-sm">Te acompaño desde la primera prueba hasta el momento en que salís por esa puerta. Juntas encontramos el look que combina con tu tocado, tu rostro y lo que sentís ese día.</p>
+                    <p className="text-sm md:text-base">Te acompaño desde la primera prueba hasta el momento en que salís por esa puerta. Juntas encontramos el look que combina con tu tocado, tu rostro y lo que sentís ese día.</p>
                     
                     <div className="flex flex-wrap gap-3 mt-5">
                         {Pins.map((pin, index) => (

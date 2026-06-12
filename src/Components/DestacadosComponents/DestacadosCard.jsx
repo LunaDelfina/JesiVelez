@@ -1,21 +1,24 @@
+import { formatPrecio } from "../../utils/format"
+import { Link } from "react-router-dom"
+
 const DestacadoTemplate = ({ name, image, price, categorie }) => {
     return (
-        <div className="flex flex-col cursor-pointer group">
-            <div className="overflow-hidden h-80">
+        <Link to={`/productos/${name}`} className="flex flex-col cursor-pointer group gap-0">
+            <div className="overflow-hidden lg:h-80 h-45">
                 <img src={image} alt={name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
             </div>
-            <h3 className="text-4xl font-principal text-marron_oscuro font-bold">{name}</h3>
-            <p className="text-marron_claro">{categorie}</p>
-            <div className="h-[1px] bg-marron_oscuro/30 my-2 rounded"></div>
-            <p className="text-2xl text-marron_oscuro  italic font-light text-right">${price}</p>
-        </div>
+            <h3 className="lg:text-4xl text-2xl font-principal text-marron_oscuro font-bold">{name}</h3>
+            <p className="text-marron_claro lg:text-lg text-xs">{categorie}</p>
+            <div className="h-[1px] bg-marron_oscuro/30 lg:my-2 my-1 rounded"></div>
+            <p className="lg:text-2xl text-sm text-marron_oscuro  italic font-light text-right">${formatPrecio(price)}</p>
+        </Link>
     )
 }
 
 // Ahora recibe productos como prop, no los importa directamente
 const DestacadoCards = ({ productos }) => {
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2  lg:grid-cols-4 md:gap-8 gap-4">
             {productos.map((item) => (
                 <DestacadoTemplate key={item.id} {...item} />
             ))}

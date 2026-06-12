@@ -1,4 +1,5 @@
 import MainTitle from "../Titles.jsx"
+import { formatPrecio } from "../../utils/format"
 import Pins from "./MaterialsPins.jsx"
 import InfoCard from "./InfoCard.jsx"
 import BuyNow from "./BuyNow.jsx"
@@ -20,7 +21,7 @@ const ProductDescription = ({ product }) => {
             <div>
                 <MainTitle title={product.title} eyebrow={`colección 2026`} />
                 <p className="font-light tracking-[0.1em] text-marron_oscuro/75 mt-2">{product.categorie} · Hecho a mano</p>
-                <h2 className="text-2xl italic font-bold  tracking-[0.1em] text-marron_oscuro/75  mt-2">${product.price.toFixed(2)}</h2>
+                <h2 className="text-2xl italic font-bold  tracking-[0.1em] text-marron_oscuro/75  mt-2">${formatPrecio(product.price)}</h2>
             </div>
             <div className={line} />
             <div>

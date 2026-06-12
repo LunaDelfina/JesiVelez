@@ -21,6 +21,11 @@ export default function App() {
           <SubirProducto />
         </ProtectedRoute>
       } />
+      <Route path="/AgregarProducto/:id" element={
+    <ProtectedRoute>
+        <SubirProducto />
+    </ProtectedRoute>
+} />
       <Route path="/test" element={<TestSupabase />} />
     </Routes>
     
