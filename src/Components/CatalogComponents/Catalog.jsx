@@ -7,7 +7,7 @@ const Catalog = () => {
     const { user } = useAuth()
 
     return(
-        <div className="px-[15%] justify-center flex flex-col items-center">
+        <div className="md:px-[15%] px-10 justify-center flex flex-col items-center">
             <TopCatalog />
             <CatalogList />
 

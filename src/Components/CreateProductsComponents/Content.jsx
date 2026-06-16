@@ -274,7 +274,7 @@ const Content = () => {
 
 
     return (
-        <div className="w-full flex gap-10 justify-center px-[15%] items-start">
+        <div className="w-full flex md:flex-row flex-col gap-10 justify-center md:px-[15%] px-10 items-start">
             <LoadImage onUploadClick={handleUploadClick} files={files} existingUrls={existingImageUrls} />
             <FormularioIngreso
                 fileInputRef={fileInputRef}

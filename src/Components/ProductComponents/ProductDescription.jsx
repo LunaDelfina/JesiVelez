@@ -6,7 +6,7 @@ import BuyNow from "./BuyNow.jsx"
 import Share from "./Share.jsx"
 
 const line = "w-full h-[2px] bg-marron_oscuro/50 rounded my-6"
-const title = " uppercase tracking-[0.1em] text-sm font-bold text-marron_oscuro mb-2"
+const title = " uppercase tracking-[0.1em] text-sm  font-bold text-marron_oscuro mb-2"
 
 
 
@@ -17,7 +17,7 @@ const ProductDescription = ({ product }) => {
     
     return (
         
-        <div className="flex flex-col w-full max-w-[50%] pb-15 h-fit py-10">
+        <div className="flex flex-col w-full pb-16 md:pb-24 h-fit pt-6 md:pt-10">
             <div>
                 <MainTitle title={product.title} eyebrow={`colección 2026`} />
                 <p className="font-light tracking-[0.1em] text-marron_oscuro/75 mt-2">{product.categorie} · Hecho a mano</p>
@@ -26,7 +26,7 @@ const ProductDescription = ({ product }) => {
             <div className={line} />
             <div>
                 <h3 className={title}>Sobre esta pieza</h3>
-                <p className="italic font-principal font-bold text-marron_oscuro/75 text-xl">{product.description}</p>
+                <p className="italic font-principal font-bold text-marron_oscuro/75 md:text-xl text-lg ">{product.description}</p>
             </div>
             <div className={line} />
             <div>
@@ -48,7 +48,7 @@ const ProductDescription = ({ product }) => {
             </div>
 
             <div className={line} />
-            <BuyNow price={product.price} />
+            <BuyNow price={product.price} title={product.title} />
             <Share />
 
         </div>

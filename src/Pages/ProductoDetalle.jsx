@@ -72,10 +72,12 @@ export default function ProductoDetalle() {
 
   return (
     <section className="App h-screen overflow-y-scroll bg-blanco ">
-      <div className="bg-carbon_claro px-[15%] pb-4 sticky top-0 w-full z-10">
+      <div className="bg-carbon_claro md:px-[15%] px-10 pb-4 sticky top-0 w-full z-11">
         <NavBar />
       </div>
-      <Curve />
+      <div className="hidden md:block">
+            <Curve />
+            </div>
       {loading ? (
         <div className="flex justify-center items-center h-full">
           <p>Cargando...</p>

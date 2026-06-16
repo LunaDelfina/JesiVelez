@@ -20,11 +20,11 @@ const FormularioIngreso = ({
     esEdicion,
 }) => {
     return (
-        <div className="w-full max-w-[50%] flex flex-col gap-6 py-10">
+        <div className="w-full md:max-w-[50%] w-full flex flex-col gap-6 py-10">
             <form onSubmit={onSubmit} className="flex flex-col gap-6">
 
                 {/* Nombre + Categoría */}
-                <div className="flex gap-6">
+                <div className="flex md:flex-row flex-col gap-6">
                     <div className={col}>
                         <LabelTitulo titulo="Nombre de la pieza" />
                         <InputTexto id="Title" ph="ej. Aurora"
@@ -44,7 +44,7 @@ const FormularioIngreso = ({
                 </div>
 
                 {/* Precio + Tiempo de entrega */}
-                <div className="flex gap-6">
+                <div className="flex md:flex-row flex-col gap-6">
                     <div className={col}>
                         <LabelTitulo titulo="Precio" />
                         <InputPrecio id="Precio"
@@ -85,7 +85,7 @@ const FormularioIngreso = ({
                 {/* Logística */}
                 <div className="flex flex-col gap-4">
                     <p className={divisor}>Detalles de envío y disponibilidad</p>
-                    <div className="grid grid-cols-3 gap-4">
+                    <div className="flex flex-col md:grid md:grid-cols-3 gap-4">
                         <div className={col}>
                             <LabelTitulo titulo="Disponibilidad" />
                             <SelectDisponibilidad
@@ -124,7 +124,7 @@ const FormularioIngreso = ({
 
             </form>
 
-            <input type="file" id="Fotos" multiple className="hidden"
+            <input type="file" id="Fotos" multiple accept="image/*,video/*" className="hidden"
                 ref={fileInputRef}
                 onChange={(e) => onFilesChange(Array.from(e.target.files))}
             />

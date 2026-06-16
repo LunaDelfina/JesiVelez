@@ -28,9 +28,14 @@ const NavBar = ({ line }) => {
                     ) : (
                         <Link to="/IniciarSesion" className={navLinkClass}>INGRESAR</Link>
                     )}
-                    <button className="bg-marron_claro text-carbon_oscuro px-4 py-2 font-light tracking-[0.1em] hover:bg-transparent hover:text-marron_claro border border-transparent hover:border-marron_claro transition-colors duration-300">
+                    <a
+                        href="https://wa.me/5493547598074?text=Hola!%20Me%20gustar%C3%ADa%20hacer%20una%20consulta."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-marron_claro text-carbon_oscuro px-4 py-2 font-light tracking-[0.1em] hover:bg-transparent hover:text-marron_claro border border-transparent hover:border-marron_claro transition-colors duration-300"
+                    >
                         CONSULTAR
-                    </button>
+                    </a>
                 </nav>
                 <MobileMenu user={user} logout={logout} />
             </div>
