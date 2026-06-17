@@ -7,7 +7,7 @@ import Footer from "../Components/Footer.jsx"
 
 export default function Productos() {
   return (
-    <section className="App h-screen overflow-y-scroll bg-blanco">
+    <section className="App min-h-screen bg-blanco">
       <div className="bg-carbon_claro md:px-[15%] px-10 pb-4 sticky top-0 w-full z-15">
         <NavBar  />
       </div>

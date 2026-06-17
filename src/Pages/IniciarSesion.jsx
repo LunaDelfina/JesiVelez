@@ -4,7 +4,7 @@ import Login from "../Components/Login/Login"
 
 const IniciarSesion = () => {
     return (
-        <section className="App h-screen overflow-y-scroll bg-blanco flex flex-col">
+        <section className="App min-h-screen bg-blanco flex flex-col">
             <div className="bg-carbon_claro md:px-[15%] px-10 pb-4 sticky top-0 w-full z-10">
                 <NavBar />
             </div>
