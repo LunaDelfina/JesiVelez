@@ -16,7 +16,7 @@ const HERO_CARDS = [
 
 const Hero = () => {
     return (
-        <section className="bg-gradient-to-t from-carbon_oscuro to-carbon_claro h-[100dvh] snap-start md:px-[15%] px-10 flex flex-col overflow-x-clip">
+        <section className="bg-gradient-to-t from-carbon_oscuro to-carbon_claro h-[100vh] snap-start md:px-[15%] px-10 flex flex-col overflow-x-clip">
             <NavBar line={true} />
             <div className="flex flex-1 min-h-0 justify-center items-center flex-col-reverse md:flex-row gap-4">
                 <div className="flex flex-col md:gap-4 gap-2 max-w-sm text-sm md:text-base">

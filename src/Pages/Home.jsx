@@ -8,7 +8,7 @@ import CTA from '../Components/CTAComponents/CTA.jsx'
 
 export default function Home() {
   return (
-    <div className="App h-[100dvh] overflow-y-scroll snap-y snap-mandatory">
+    <div className="App h-[100vh] overflow-y-scroll snap-y snap-mandatory">
       <Hero />
       <Categorias />
       <Destacados />

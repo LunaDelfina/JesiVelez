@@ -12,7 +12,7 @@ const ArrowIcon = () => (
 
 const CTA = () => {
     return (
-        <section className="relative bg-blanco h-[100dvh] snap-start flex flex-col overflow-x-clip">
+        <section className="relative bg-blanco h-[100vh] snap-start flex flex-col overflow-x-clip">
             <div className="flex flex-1 min-h-0 justify-center items-center flex-col md:flex-row gap-6 md:gap-20 md:px-[15%] px-10">
                 <div className="hidden md:flex w-full h-[35vh] md:flex-1 md:h-full md:overflow-hidden  min-w-0">
                     <Cards />

@@ -25,7 +25,7 @@ const MobileMenu = ({ user, logout }) => {
 
             {/* Panel */}
             <div className={`
-                fixed top-0 right-0 h-[100dvh] w-[75vw] max-w-[320px] z-50
+                fixed top-0 right-0 h-[100vh] w-[75vw] max-w-[320px] z-50
                 bg-carbon_claro flex flex-col
                 transition-transform duration-500 ease-in-out
                 ${open ? 'translate-x-0' : 'translate-x-full'}

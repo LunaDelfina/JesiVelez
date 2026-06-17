@@ -15,7 +15,7 @@ const Reviews = () => {
     };
 
     return (
-        <section className="bg-gradient-to-b from-carbon_oscuro to-carbon_claro h-[100dvh] snap-start md:px-[15%] px-10 flex flex-col justify-center gap-10 overflow-x-clip">
+        <section className="bg-gradient-to-b from-carbon_oscuro to-carbon_claro h-[100vh] snap-start md:px-[15%] px-10 flex flex-col justify-center gap-10 overflow-x-clip">
 
             <MainTitle eyebrow="Lo que dicen ellas" title="Palabras que nos " accent="llenan el alma" />
 
