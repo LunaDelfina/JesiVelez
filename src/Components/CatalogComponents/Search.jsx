@@ -2,17 +2,30 @@ import { Link, useSearchParams } from "react-router-dom";
 import { useState, useRef, useEffect, useCallback } from "react";
 import Lupa from "../../assets/images/icons/Lupa.svg";
 import Categories from "./CategoriesData.jsx";
+import { useAuth } from "../../context/AuthContext";
 
 const GAP = 12;
 
 const Search = () => {
-    const [searchParams] = useSearchParams();
+    const [searchParams, setSearchParams] = useSearchParams();
+    const { user } = useAuth();
     const CategoriaSeleccionada = searchParams.get("categoria");
+    const buscarActual = searchParams.get("buscar") ?? "";
     const [visibleCount, setVisibleCount] = useState(Categories.length);
     const [drawerOpen, setDrawerOpen] = useState(false);
     const containerRef = useRef(null);
     const pillRefs = useRef([]);
     const overflowRef = useRef(null);
+
+    const handleSearch = (e) => {
+        const val = e.target.value;
+        setSearchParams(prev => {
+            const next = new URLSearchParams(prev);
+            if (val) next.set("buscar", val);
+            else next.delete("buscar");
+            return next;
+        });
+    };
 
     const recalculate = useCallback(() => {
         if (!containerRef.current || !overflowRef.current) return;
@@ -94,6 +107,8 @@ const Search = () => {
 
                 <div className="relative flex items-center w-full">
                     <input
+                        value={buscarActual}
+                        onChange={handleSearch}
                         className="bg-white text-marron_oscuro/75 tracking-[0.1em] pl-4 pr-10 w-full py-2 border border-marron_oscuro/50 focus:outline-none focus:ring-2 focus:ring-marron_oscuro/50 rounded-md"
                         type="text"
                         placeholder="¿Qué estás buscando?"
@@ -124,6 +139,21 @@ const Search = () => {
                         </button>
                     )}
                 </div>
+
+                {user && (
+                    <div className="flex w-full">
+                        <Link
+                            to="/productos?categoria=Deshabilitados"
+                            className={`shrink-0 whitespace-nowrap md:text-sm text-xs tracking-[0.1em] px-3 py-1 border rounded-md uppercase transition-colors duration-300 ${
+                                CategoriaSeleccionada === "Deshabilitados"
+                                    ? "bg-marron_oscuro text-white border-marron_oscuro"
+                                    : "text-marron_oscuro/40 border-marron_oscuro/25 hover:bg-marron_oscuro/10"
+                            }`}
+                        >
+                            Deshabilitados
+                        </Link>
+                    </div>
+                )}
             </div>
 
             {/* Overlay */}
@@ -140,7 +170,6 @@ const Search = () => {
                     drawerOpen ? "translate-y-0" : "translate-y-full"
                 }`}
             >
-                {/* Handle */}
                 <div className="flex justify-center pt-3 pb-1">
                     <div className="w-10 h-1 rounded-full bg-marron_oscuro/20" />
                 </div>
@@ -164,6 +193,22 @@ const Search = () => {
                                 {cat.title}
                             </Link>
                         ))}
+                        {user && (
+                            <>
+                                <div className="h-[1px] bg-marron_oscuro/10 my-2" />
+                                <Link
+                                    to="/productos?categoria=Deshabilitados"
+                                    onClick={() => setDrawerOpen(false)}
+                                    className={`w-full text-left px-4 py-3 rounded-lg md:text-sm text-xs tracking-[0.1em] uppercase transition-colors duration-200 ${
+                                        CategoriaSeleccionada === "Deshabilitados"
+                                            ? "bg-marron_oscuro text-white"
+                                            : "text-marron_oscuro/40 hover:bg-marron_oscuro/10"
+                                    }`}
+                                >
+                                    Deshabilitados
+                                </Link>
+                            </>
+                        )}
                     </div>
                 </div>
             </div>

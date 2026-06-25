@@ -67,6 +67,7 @@ const SliderImages = ({ images = [], bg = "bg-crema" }) => {
                         </span>
                     </>
                 )}
+                
             </div>
 
             {/* Thumbnails */}

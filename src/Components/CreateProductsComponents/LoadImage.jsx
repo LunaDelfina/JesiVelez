@@ -56,7 +56,7 @@ const LoadImage = ({ onUploadClick, files, existingUrls = [] }) => {
 
     return (
         <div className="md:relative w-full md:sticky top-[128px]">
-            <SliderImages images={urls} />
+            <SliderImages images={urls} bg="bg-blanco" />
             <button
                 type="button"
                 onClick={onUploadClick}

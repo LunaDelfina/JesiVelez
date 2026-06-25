@@ -4,17 +4,21 @@ import CatalogAmuntOrder from "./CatalogAmuntOrder.jsx"
 import CatalogLayOut from "./CatalogLayOut.jsx"
 import { useSearchParams } from "react-router-dom"
 
+const normalize = (str) => str?.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase() ?? ""
+
 const CatalogoList = () => {
     const [searchParams] = useSearchParams()
     const CategoriaSeleccionada = searchParams.get("categoria")
     const ordenSeleccionado = searchParams.get("orden") ?? ""
-
+    const buscar = normalize(searchParams.get("buscar") ?? "")
+    const esDeshabilitados = normalize(CategoriaSeleccionada ?? "") === "deshabilitados"
 
     const [productos, setProductos] = useState([])
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         const fetchProducts = async () => {
+            setLoading(true)
             const { data, error } = await supabase
                 .from('productos')
                 .select(`
@@ -26,26 +30,28 @@ const CatalogoList = () => {
             categorias (nombre)
         )
     `)
-                .eq('activo', true)
+                .eq('activo', !esDeshabilitados)
 
             if (error) {
                 console.error('Error fetching products:', error)
+                setLoading(false)
                 return
             }
             setProductos(data)
             setLoading(false)
         }
         fetchProducts()
-    }, [])
+    }, [esDeshabilitados])
 
+    const filteredData = (esDeshabilitados || !CategoriaSeleccionada || normalize(CategoriaSeleccionada) === "todos")
+        ? productos
+        : productos.filter(item => normalize(item.producto_categorias[0]?.categorias?.nombre) === normalize(CategoriaSeleccionada))
 
-    const normalize = (str) => str?.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase() ?? ""
+    const searchedData = buscar
+        ? filteredData.filter(item => normalize(item.titulo).includes(buscar))
+        : filteredData
 
-    const filteredData = CategoriaSeleccionada && normalize(CategoriaSeleccionada) !== "todos"
-        ? productos.filter(item => normalize(item.producto_categorias[0]?.categorias?.nombre) === normalize(CategoriaSeleccionada))
-        : productos
-
-    const sortedData = [...filteredData].sort((a, b) => {
+    const sortedData = [...searchedData].sort((a, b) => {
         switch (ordenSeleccionado) {
             case "precio-asc":  return (a.precio_desde ?? 0) - (b.precio_desde ?? 0)
             case "precio-desc": return (b.precio_desde ?? 0) - (a.precio_desde ?? 0)
