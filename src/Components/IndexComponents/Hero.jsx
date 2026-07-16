@@ -2,9 +2,9 @@
 import MainTitle from "../Titles.jsx";
 import NavBar from "../NavBar.jsx";
 import Cards from "./PolaroidDeck/Deck.jsx";
-import card1 from "../../assets/images/cards/card1.png";
-import card2 from "../../assets/images/cards/card2.png";
-import card3 from "../../assets/images/cards/card3.png";
+import card1 from "../../assets/images/homePhotos/C2.jpg";
+import card2 from "../../assets/images/homePhotos/C4.jpg";
+import card3 from "../../assets/images/homePhotos/C1.jpg";
 
 
 const HERO_CARDS = [

@@ -75,7 +75,7 @@ const Search = () => {
 
     return (
         <>
-            <div className="w-full lg:w-fit flex flex-col items-center gap-4">
+            <div className="w-full md:w-fit lg:w-fit flex flex-col items-center gap-4">
                 {/* Contenedor invisible solo para medir anchos de pills */}
                 <div
                     aria-hidden="true"

@@ -24,7 +24,7 @@ const CTA = () => {
                 </div>
                     <p className="text-sm md:text-base">Ese día merece algo único, elegido con tiempo y con amor. Escribime y encontramos juntas la pieza perfecta — ya sea en el estudio, por mensaje o en una videollamada.</p>
 
-                    <button className={`${btnBase} bg-marron_claro text-blanco px-6 py-3 font-light lg:text-lg text-xs hover:bg-transparent hover:text-marron_claro border border-transparent hover:border-marron_claro mt-5`}>
+                    <button className={`${btnBase} bg-marron_claro text-blanco px-6 py-3 font-light md:text-sm lg:text-lg text-xs hover:bg-transparent hover:text-marron_claro border border-transparent hover:border-marron_claro mt-5`}>
                         Quiero asesoramiento
                         <ArrowIcon />
                     </button>

@@ -1,12 +1,10 @@
 import Deck from "./PolaroidDeck/Deck";
-import card1 from "../../assets/images/cta/CTA.png";
+import card1 from "../../assets/images/cta/CTA.jpg";
 
 
 const fotos = [
   {
-    url: card1,
-    date: "Colección 2025",
-    caption: "Tocado Aurora",
+    url: card1
   }
 ];
 

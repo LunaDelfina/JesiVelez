@@ -15,7 +15,7 @@ const Reviews = () => {
     };
 
     return (
-        <section className="bg-gradient-to-b from-carbon_oscuro to-carbon_claro h-[100vh] snap-start md:px-[15%] px-10 flex flex-col justify-center gap-10 overflow-x-clip">
+        <section className="bg-gradient-to-b from-carbon_oscuro to-carbon_claro h-[100vh] snap-start md:px-[15%] px-10 flex flex-col justify-center gap-6 overflow-x-clip">
 
             <MainTitle eyebrow="Lo que dicen ellas" title="Palabras que nos " accent="llenan el alma" />
 
@@ -23,7 +23,7 @@ const Reviews = () => {
                 <div
                     ref={sliderRef}
                     onScroll={handleScroll}
-                    className="flex h-[40vh] gap-0 md:gap-10
+                    className="flex h-[46vh] gap-0 md:gap-10
                         overflow-x-auto snap-x snap-mandatory md:overflow-x-visible md:snap-none
                         [&::-webkit-scrollbar]:hidden"
                     style={{ scrollbarWidth: "none" }}

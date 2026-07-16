@@ -8,7 +8,7 @@ const CatalogLayOut = ({ data }) => {
     };
 
     return (
-        <div className="grid grid-cols-2 lg:grid-cols-4 md:gap-8 gap-4 mt-2">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 md:gap-8 gap-4 mt-2">
             {data.map((item) => (
                 <ProductCard
                     key={item.id}

@@ -1,9 +1,9 @@
 
 
-import Tocados from "../../assets/images/categories/Tocados.png";
-import Pins from "../../assets/images/categories/Pins.png";
+import Tocados from "../../assets/images/categories/Tocados.jpg";
+import Pins from "../../assets/images/categories/Pins.jpg";
 import Guias from "../../assets/images/categories/Guias.png";
-import Joyeria from "../../assets/images/categories/Joyeria.png";
+import Joyeria from "../../assets/images/categories/Joyeria.jpg";
 
 const Data = [
     {

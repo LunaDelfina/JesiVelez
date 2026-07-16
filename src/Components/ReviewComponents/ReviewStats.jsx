@@ -17,21 +17,21 @@ const Instagram=({ hideMobile, hideDesktop })=>{
                     </svg>
                 </div>
                 <div >
-                    <p className="font-bold lg:text-sm text-xs">Ver más trabajos</p>
+                    <p className="font-bold md:text-sm lg:text-sm text-xs">Ver más trabajos</p>
                     <p className="md:text-sm text-xs text-crema font-light">@JesiVelez</p>
                 </div>
             </a>
     )
 }
 
-const h2="lg:text-5xl text-4xl font-principal text-crema"
+const h2="lg:text-4xl text-3xl font-principal text-crema"
 const p="font-light text-[0.65rem] md:text-sm"
 const responsivediv = " flex lg:flex-row md:flex-row flex-col gap-0 lg:gap-2  md:gap-2  items-center justify-center "
 const Stats = () => {
 
 
     return (
-        <div className="flex flex-col w-full gap-6 ">
+        <div className="flex flex-col w-full gap-3 ">
         <div className="flex w-full justify-around items-center">
             <div className={`${responsivediv} `}>
                 <h2 className={h2}>+200</h2>

@@ -5,7 +5,7 @@ const MainTitle = ({ eyebrow, title, extra, accent, line }) => {
                 <div className="md:h-[1px] h-[2px] w-25 rounded-full bg-marron_claro"></div>
                 <p className="tracking-[0.15em] text-[0.625rem] md:text-xs">{eyebrow}</p>
             </div>
-            <div className="md:text-5xl text-3xl font-principal font-bold">
+            <div className="md:text-4xl text-3xl font-principal font-bold">
 
             <div className={line ? "flex gap-2" : "flex-col"}>
             <h1 className="">{title}</h1>

@@ -28,10 +28,12 @@ function getDimensions(key) {
   return DIMENSIONS[key];
 }
 
-function scaleDimensions(dims, containerWidth, containerHeight) {
+const DESKTOP_SCALE = 0.82; // achica las photocards ~18% en pantallas md+ (notebooks en adelante)
+
+function scaleDimensions(dims, containerWidth, containerHeight, extraScale = 1) {
   const scaleW = containerWidth  > 0 ? (containerWidth  - PADDING) / dims.frameWidth  : 1;
   const scaleH = containerHeight > 0 ? (containerHeight - PADDING) / dims.frameHeight : 1;
-  const scale  = Math.min(1, scaleW, scaleH);
+  const scale  = Math.min(1, scaleW, scaleH) * extraScale;
   return {
     frameWidth:   dims.frameWidth   * scale,
     frameHeight:  dims.frameHeight  * scale,
@@ -74,6 +76,16 @@ export default function Deck({ cards, className, style }) {
   const [orientations,  setOrientations] = useState(() => cards.map(() => null));
   const [isReady,       setIsReady]      = useState(false);
   const [hiddenCards,   setHiddenCards]  = useState(() => new Set());
+  const [isDesktop,     setIsDesktop]    = useState(() => (typeof window === "undefined" ? false : window.innerWidth >= 768));
+
+  // Achicar photocards a partir del breakpoint md (notebooks en adelante)
+  useLayoutEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px)");
+    const update = () => setIsDesktop(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
 
   const [springs, api] = useSprings(cards.length, (i) => ({
     ...to(i),
@@ -169,7 +181,7 @@ export default function Deck({ cards, className, style }) {
       {isReady && springs.map(({ x, y, rot, scale }, index) => {
         if (hiddenCards.has(index)) return null;
         const orientationKey = getOrientationKey(orientations[index]);
-        const dims           = scaleDimensions(getDimensions(orientationKey), containerSize.width, containerSize.height);
+        const dims           = scaleDimensions(getDimensions(orientationKey), containerSize.width, containerSize.height, isDesktop ? DESKTOP_SCALE : 1);
         const card           = cards[index];
         const cssVars = {
           "--photo-deck-photo-width":          `${dims.photoWidth}px`,
