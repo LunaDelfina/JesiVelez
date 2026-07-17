@@ -7,7 +7,7 @@ const Line = ({ hideMobile }) => {
 
 const Instagram=({ hideMobile, hideDesktop })=>{
     return(
-        <a href="https://www.google.com/search?q=jesiv+velez+tocados&oq=jesiv+velez+tocados&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIJCAEQABgNGIAEMgkIAhAAGA0YgAQyCQgDEAAYDRiABDIJCAQQABgNGIAEMggIBRAAGA0YHjIICAYQABgNGB4yCAgHEAAYDRgeMggICBAAGA0YHjIICAkQABgNGB7SAQk5MzM1MGowajeoAgCwAgA&sourceid=chrome&ie=UTF-8#:~:text=Jesi%20Velez%20%7C%20Tocados%20de%20novia%20en%20C%C3%B3rdoba%20(%40coronadasag_)" target="_blank"
+        <a href="https://www.instagram.com/jesivelezhair/" target="_blank" rel="noopener noreferrer"
                 className={` gap-2 items-center justify-center cursor-pointer flex ${hideMobile && hideDesktop===false ? 'hidden lg:flex md:flex' : ''} ${hideDesktop && hideMobile===false ? 'flex md:hidden' : ''}`}>
                 <div className="border-[1px] border-marron_claro p-2 rounded-full">
                     <svg width="16" height="16" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import MainTitle from "../Titles.jsx"
 import Cards from "./CTACards.jsx"
 import Footer from "../Footer.jsx"
@@ -24,14 +25,19 @@ const CTA = () => {
                 </div>
                     <p className="text-sm md:text-base">Ese día merece algo único, elegido con tiempo y con amor. Escribime y encontramos juntas la pieza perfecta — ya sea en el estudio, por mensaje o en una videollamada.</p>
 
-                    <button className={`${btnBase} bg-marron_claro text-blanco px-6 py-3 font-light md:text-sm lg:text-lg text-xs hover:bg-transparent hover:text-marron_claro border border-transparent hover:border-marron_claro mt-5`}>
+                    <a
+                        href="https://wa.me/5493547598074?text=Hola!%20Quiero%20asesoramiento%20para%20mi%20look."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`${btnBase} bg-marron_claro text-blanco px-6 py-3 font-light md:text-sm lg:text-lg text-xs hover:bg-transparent hover:text-marron_claro border border-transparent hover:border-marron_claro mt-5 w-fit`}
+                    >
                         Quiero asesoramiento
                         <ArrowIcon />
-                    </button>
-                    <button className={`${btnBase} text-marron_claro w-fit px-1 py-1 text-sm border-b border-marron_claro`}>
+                    </a>
+                    <Link to="/productos" className={`${btnBase} text-marron_claro w-fit px-1 py-1 text-sm border-b border-marron_claro`}>
                         Ver colección completa
                         <ArrowIcon />
-                    </button>
+                    </Link>
                 </div>
             </div>
             <Footer />

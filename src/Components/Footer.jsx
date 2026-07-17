@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 const buttonBase = "hover:text-crema transition-colors duration-300 ";
 
 const textCreditsBase= "md:text-xs text-[0.45rem] tracking-[0.1em]";
@@ -13,10 +15,17 @@ const Footer = ({ absolute }) => {
                 </div>
 
                 <nav className="hidden md:flex gap-8 text-xs  tracking-[0.15em] text-marron_claro uppercase ">
-                    <button className={buttonBase}>Colección</button>
-                    <button className={buttonBase}>Peinados</button>
-                    <button className={buttonBase}>Opiniones</button>
-                    <button className={buttonBase}>Consultar</button>
+                    <Link to="/productos" className={buttonBase}>Colección</Link>
+                    <Link to="/#Peinados" className={buttonBase}>Peinados</Link>
+                    <Link to="/#Opiniones" className={buttonBase}>Opiniones</Link>
+                    <a
+                        href="https://wa.me/5493547598074?text=Hola!%20Me%20gustar%C3%ADa%20hacer%20una%20consulta."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={buttonBase}
+                    >
+                        Consultar
+                    </a>
                 </nav>
 
                 <div className="flex flex-col items-end gap-1">

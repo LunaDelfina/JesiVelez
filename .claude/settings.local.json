@@ -13,7 +13,8 @@
       "Bash(powershell -Command \"try { Get-Process node -ErrorAction Stop | Select Id } catch { 'none' }\")",
       "Bash(node -e \"console.log\\(require.resolve\\('playwright'\\)\\)\")",
       "Bash(npx eslint *)",
-      "Bash(npx --yes -p playwright node \"C:\\\\Users\\\\usuario\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-usuario-Downloads-JesiVelez\\\\b31ce605-3ada-42f3-a0ab-7609465d4917\\\\scratchpad\\\\check_deck.js\")"
+      "Bash(npx --yes -p playwright node \"C:\\\\Users\\\\usuario\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-usuario-Downloads-JesiVelez\\\\b31ce605-3ada-42f3-a0ab-7609465d4917\\\\scratchpad\\\\check_deck.js\")",
+      "Bash(node ./__check_reviews_tmp.cjs)"
     ]
   }
 }

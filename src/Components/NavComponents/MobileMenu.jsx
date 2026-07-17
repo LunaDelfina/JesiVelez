@@ -83,13 +83,15 @@ const MobileMenu = ({ user, logout }) => {
 
                 {/* CTA abajo */}
                 <div className="px-8 pb-12">
-                    <Link
-                        to="/consultar"
+                    <a
+                        href="https://wa.me/5493547598074?text=Hola!%20Me%20gustar%C3%ADa%20hacer%20una%20consulta."
+                        target="_blank"
+                        rel="noopener noreferrer"
                         onClick={() => setOpen(false)}
                         className="block w-full text-center py-4 border border-marron_claro text-marron_claro tracking-widest text-sm uppercase hover:bg-marron_claro hover:text-carbon_oscuro transition-colors duration-300"
                     >
                         Consultar
-                    </Link>
+                    </a>
                     <p className="text-marron_claro/40 text-xs text-center mt-6 tracking-widest">+200 novias acompañadas desde 2019</p>
                 </div>
             </div>

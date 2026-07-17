@@ -8,7 +8,7 @@ const ReviewCards = ({ review }) => {
                     <p className="absolute uppercase top-0 tracking-[0.1em] bg-crema text-marron_oscuro px-4 py-2 text-sm">Destacado</p>
                 ) : null}
             </div>
-            <p className="font-principal font-bold md:text-xl lg:text-xl 2xl:text-2xl text-xl text-crema/75 italic break-words">
+            <p className="font-principal font-bold md:text-xl lg:text-xl 2xl:text-2xl text-xl text-crema/75 italic break-words leading-snug">
             {review.review}</p>
             <div className="h-[1px] bg-marron_claro w-45  rounded-full "></div>
             <div className="flex gap-4 items-center">
