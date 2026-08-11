@@ -1,16 +1,44 @@
-# React + Vite
+# Jesi Velez — Coronadas
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación web desarrollada para Jesi Velez, profesional dedicada a tocados, accesorios y servicios para eventos.
 
-Currently, two official plugins are available:
+Este proyecto es la reconstrucción de una web que desarrollé originalmente en 2023. Tres años después, decidí rehacerla desde cero para adaptar la experiencia a la evolución de la marca y aplicar todo lo que había aprendido desde la primera versión.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🎯 Sobre el proyecto
 
-## React Compiler
+El objetivo fue transformar una página originalmente creada como uno de mis primeros proyectos web en una aplicación moderna, responsive y conectada a datos reales.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+La primera versión estaba desarrollada con HTML, CSS, JavaScript, PHP y MySQL. Para esta nueva versión replanteé tanto la arquitectura como la experiencia de usuario y el diseño visual.
 
-## Expanding the ESLint configuration
+La nueva aplicación utiliza React en el frontend y Supabase para la gestión de datos, autenticación y almacenamiento de imágenes.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Características
+
+- Catálogo de productos conectado a una base de datos.
+- Gestión dinámica de productos y categorías.
+- Autenticación mediante Supabase.
+- Carga y gestión de imágenes.
+- Navegación entre diferentes secciones de la aplicación.
+- Diseño responsive.
+- Componentes reutilizables en React.
+- Animaciones y transiciones para mejorar la experiencia de usuario.
+- Interfaz diseñada específicamente alrededor de la identidad visual de la marca.
+
+## 🏗️ Arquitectura
+
+La aplicación utiliza una arquitectura basada en un frontend React conectado a los servicios backend de Supabase.
+
+```text
+┌─────────────────────────────┐
+│          React UI           │
+│                             │
+│ Components / Pages / Routes │
+└──────────────┬──────────────┘
+               │
+               │ Supabase Client
+               ▼
+┌─────────────────────────────┐
+│          Supabase           │
+│                             │
+│ PostgreSQL │ Auth │ Storage │
+└─────────────────────────────┘
